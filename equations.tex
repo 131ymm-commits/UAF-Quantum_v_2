@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+
+\title{UAF-Quantum Equations}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\subsection{Основное уравнение когерентности (с ℏ)}
+
+\begin{equation}
+\hbar \frac{\partial \Gamma_l}{\partial \tau} = \eta_l \left( \sum_{k<l} \Phi_{k\to l} \mathcal{E}_{k,l} \right) (1-\alpha_l)^2 \Gamma_l - \lambda_l \Delta S_{env,l} \alpha_l \Gamma_l
+\end{equation}
+
+\subsection{Уравнение для α_l}
+
+\begin{equation}
+\hbar \frac{\partial \alpha_l}{\partial \tau} = \kappa_l \alpha_l (1-\alpha_l)(E_l - c_l) - \delta_l (1-\alpha_l) \Gamma_l^2 + \mu_l \sum_{k<l} \mathcal{E}_{k,l} (\Gamma_k - \Gamma_l)
+\end{equation}
+
+\subsection{Поток корреляций}
+
+\begin{equation}
+\Phi_{k\to l} = \beta_{k,l} \frac{\Gamma_k \alpha_l}{1 + \nu |\Gamma_k - \Gamma_l|} \cdot \frac{E_{k,l}}{\hbar}
+\end{equation}
+
+\subsection{Уравнение Шрёдингера как предел UAF}
+
+В пределе $\alpha \to 0$, слабой декогеренции и одного доминирующего уровня:
+
+\begin{equation}
+i \hbar \frac{\partial \Psi}{\partial \tau} = \hat{H} \Psi
+\end{equation}
+
+где $\Psi = \sqrt{\Gamma} \, e^{i\phi}$, а $\hat{H}$ формируется из суммы $\Phi \cdot \mathcal{E}$ по уровням.
+
+\subsection{Lindblad-форма (открытая система)}
+
+\begin{equation}
+\frac{d\rho}{d\tau} = -\frac{i}{\hbar} [H, \rho] + \sum_l \mathcal{D}[L_l] \rho
+\end{equation}
+
+где $L_l \propto \sqrt{\lambda_l \alpha_l \Delta S_{env,l}}$.
+
+\end{document}
