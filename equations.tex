@@ -1,47 +1,43 @@
 \documentclass{article}
 \usepackage{amsmath,amssymb}
-
-\title{UAF-Quantum Equations}
+\title{UAF-Quantum: Уравнения (размерно согласованные)}
 \author{}
-
 \begin{document}
-
 \maketitle
 
-\subsection{Основное уравнение когерентности (с ℏ)}
+\subsection{1. Динамика когерентности}
 
 \begin{equation}
-\hbar \frac{\partial \Gamma_l}{\partial \tau} = \eta_l \left( \sum_{k<l} \Phi_{k\to l} \mathcal{E}_{k,l} \right) (1-\alpha_l)^2 \Gamma_l - \lambda_l \Delta S_{env,l} \alpha_l \Gamma_l
+\hbar \frac{d \Gamma_l}{d \tau} = \left[ \eta_l \left( \sum_{k<l} \Phi_{k\to l} \,\mathcal{E}_{k,l} \right) (1-\alpha_l)^2 
+- \lambda_l \, \Delta S_{env,l} \, \alpha_l \right] \Gamma_l
 \end{equation}
 
-\subsection{Уравнение для α_l}
+\subsection{2. Динамика интеграции α}
 
 \begin{equation}
-\hbar \frac{\partial \alpha_l}{\partial \tau} = \kappa_l \alpha_l (1-\alpha_l)(E_l - c_l) - \delta_l (1-\alpha_l) \Gamma_l^2 + \mu_l \sum_{k<l} \mathcal{E}_{k,l} (\Gamma_k - \Gamma_l)
+\hbar \frac{d \alpha_l}{d \tau} = \kappa_l \alpha_l (1-\alpha_l)(E_l - c_l) 
+- \delta_l (1-\alpha_l) \Gamma_l^2 
++ \mu_l \sum_{k<l} \mathcal{E}_{k,l} (\Gamma_k - \Gamma_l)
 \end{equation}
 
-\subsection{Поток корреляций}
+\subsection{3. Поток корреляций}
 
 \begin{equation}
-\Phi_{k\to l} = \beta_{k,l} \frac{\Gamma_k \alpha_l}{1 + \nu |\Gamma_k - \Gamma_l|} \cdot \frac{E_{k,l}}{\hbar}
+\Phi_{k\to l} = \beta_{k,l} \frac{\Gamma_k \, \alpha_l}{1 + \nu |\Gamma_k - \Gamma_l|} \cdot \frac{E_{k,l}}{\hbar}
 \end{equation}
 
-\subsection{Уравнение Шрёдингера как предел UAF}
-
-В пределе $\alpha \to 0$, слабой декогеренции и одного доминирующего уровня:
+\subsection{4. Предел → Уравнение Шрёдингера}
 
 \begin{equation}
-i \hbar \frac{\partial \Psi}{\partial \tau} = \hat{H} \Psi
+i \hbar \frac{\partial \Psi}{\partial \tau} = \hat{H} \Psi, \quad 
+\Psi = \sqrt{\Gamma} \, e^{i \phi}
 \end{equation}
 
-где $\Psi = \sqrt{\Gamma} \, e^{i\phi}$, а $\hat{H}$ формируется из суммы $\Phi \cdot \mathcal{E}$ по уровням.
-
-\subsection{Lindblad-форма (открытая система)}
+\subsection{5. Lindblad-форма}
 
 \begin{equation}
-\frac{d\rho}{d\tau} = -\frac{i}{\hbar} [H, \rho] + \sum_l \mathcal{D}[L_l] \rho
+\frac{d\rho}{d\tau} = -\frac{i}{\hbar}[H, \rho] 
++ \sum_l \lambda_l \left( L_l \rho L_l^\dagger - \frac12 \{L_l^\dagger L_l, \rho\} \right)
 \end{equation}
-
-где $L_l \propto \sqrt{\lambda_l \alpha_l \Delta S_{env,l}}$.
 
 \end{document}
